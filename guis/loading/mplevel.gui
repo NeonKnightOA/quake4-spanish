@@ -2,10 +2,18 @@ windowDef Desktop
 {
 	rect	0,0,640,480
 	definefloat	"iconOffset"	(640-(24*"gui::load_icons"+24))/2
-	windowDef loadimg
+	windowDef loadimg_wide
+	{
+		rect	( 0 - "gui::virtual_screen_x_expand" ),( 0 - "gui::virtual_screen_y_expand" ),( 640 + ( "gui::virtual_screen_x_expand" * 2 ) ),( 480 + ( "gui::virtual_screen_y_expand" * 2 ) )
+		visible	("gui::loading_bkgnd_canvasfill" == 1)
+		background	"gui::loading_bkgnd"
+		matcolor	1,1,1,1
+		matcanvasfill	1
+	}
+	windowDef loadimg_legacy
 	{
 		rect	0,0,640,480
-		visible	1
+		visible	("gui::loading_bkgnd_canvasfill" == 0)
 		background	"gui::loading_bkgnd"
 		matcolor	1,1,1,1
 	}
@@ -15,6 +23,18 @@ windowDef Desktop
 		visible	1
 		background	"gfx/guis/mainmenu/load_top_edge"
 		matcolor	0,0,0,0.8
+		screenalignx	left
+		screenaligny	top
+	}
+	windowDef top_edge2
+	{
+		rect	640,0,( "gui::virtual_screen_x_expand" * 2 ),120
+		visible	1
+		background	"gfx/guis/mainmenu/load_top_edge2"
+		matcolor	0,0,0,0.8
+		naturalmatscale	1
+		screenalignx	left
+		screenaligny	top
 	}
 	windowDef btm_edge
 	{
@@ -22,6 +42,28 @@ windowDef Desktop
 		visible	1
 		background	"gfx/guis/mainmenu/load_btm_edge"
 		matcolor	0,0,0,0.8
+		screenalignx	right
+		screenaligny	bottom
+	}
+	windowDef btm_edge2
+	{
+		rect	( 0 - ( "gui::virtual_screen_x_expand" * 2 ) ),227,( "gui::virtual_screen_x_expand" * 2 ),253
+		visible	1
+		background	"gfx/guis/mainmenu/load_btm_edge2"
+		matcolor	0,0,0,0.8
+		//naturalmatscale	1
+		screenalignx	right
+		screenaligny	bottom
+	}
+	windowDef top_edgetile
+	{
+		rect	640,0,( "gui::virtual_screen_x_expand" * 2 ),120
+		visible	1
+		background	"gfx/guis/mainmenu/load_top_edgetile"
+		matcolor	0.0941,0.113,0.0392,1
+		naturalmatscale	1
+		screenalignx	left
+		screenaligny	top
 	}
 	windowDef top_edgeadd
 	{
@@ -29,6 +71,18 @@ windowDef Desktop
 		visible	1
 		background	"gfx/guis/mainmenu/load_top_edgeadd"
 		matcolor	0.0941,0.113,0.0392,1
+		screenalignx	left
+		screenaligny	top
+	}
+	windowDef btm_edgetile
+	{
+		rect	( 0 - ( "gui::virtual_screen_x_expand" * 2 ) ),227,( "gui::virtual_screen_x_expand" * 2 ),253
+		visible	1
+		background	"gfx/guis/mainmenu/load_btm_edgetile"
+		matcolor	0.0941,0.113,0.0392,1
+		//naturalmatscale	1
+		screenalignx	right
+		screenaligny	bottom
 	}
 	windowDef btm_edgeadd
 	{
@@ -36,6 +90,8 @@ windowDef Desktop
 		visible	1
 		background	"gfx/guis/mainmenu/load_btm_edgeadd"
 		matcolor	0.0941,0.113,0.0392,1
+		screenalignx	right
+		screenaligny	bottom
 	}
 	windowDef grid1
 	{
@@ -57,11 +113,15 @@ windowDef Desktop
 		visible	1
 		background	"gfx/guis/mainmenu/load_bar"
 		matcolor	0.878,0.423,0,0.3
+		screenalignx	right
+		screenaligny	bottom
 	}
 	windowDef p_load_bar
 	{
 		rect	235,313,( "gui::map_loading" * 405 ),26
 		visible	1
+		screenalignx	right
+		screenaligny	bottom
 		windowDef load_bar
 		{
 			rect	0,0,405,26
@@ -81,6 +141,8 @@ windowDef Desktop
 		font	"fonts/marine"
 		textalign	2
 		textstyle	1
+		screenalignx	right
+		screenaligny	bottom
 
 		onTime 0 {
 			transition "forecolor" "1,1,1,1" "0.5,0.5,0.5,1" "500" ;
@@ -101,6 +163,8 @@ windowDef Desktop
 		visible	1
 		background	"gfx/guis/mainmenu/load_corner"
 		matcolor	0.227,0.227,0.227,1
+		screenalignx	left
+		screenaligny	top
 	}
 	windowDef bl_corner
 	{
@@ -109,6 +173,8 @@ windowDef Desktop
 		background	"gfx/guis/mainmenu/load_corner"
 		matcolor	0.227,0.227,0.227,1
 		matscaley	-1
+		screenalignx	left
+		screenaligny	bottom
 	}
 	windowDef tr_corner
 	{
@@ -117,6 +183,8 @@ windowDef Desktop
 		background	"gfx/guis/mainmenu/load_corner"
 		matcolor	0.227,0.227,0.227,1
 		matscalex	-1
+		screenalignx	right
+		screenaligny	top
 	}
 	windowDef br_corner
 	{
@@ -126,6 +194,8 @@ windowDef Desktop
 		matcolor	0.227,0.227,0.227,1
 		matscaley	-1
 		matscalex	-1
+		screenalignx	right
+		screenaligny	bottom
 	}
 	windowDef t_levelname_grad
 	{
@@ -134,6 +204,8 @@ windowDef Desktop
 		background	"gfx/guis/common/gradient3"
 		matcolor	0,0,0,1
 		matscalex	-1
+		screenalignx	right
+		screenaligny	top
 	}
 	windowDef load_dots
 	{
@@ -141,6 +213,8 @@ windowDef Desktop
 		visible	1
 		background	"gfx/guis/mainmenu/load_dots"
 		matcolor	0.109,0.145,0.0745,1
+		screenalignx	left
+		screenaligny	top
 	}
 	windowDef t_levelname
 	{
@@ -152,25 +226,31 @@ windowDef Desktop
 		font	"fonts/marine"
 		textspacing	-2
 		textalign	2
+		screenalignx	right
+		screenaligny	top
 	}
 	windowDef t_message_grad
 	{
 		rect	291,36,349,18
-		visible	1
+		visible	"gui::loading_author_visible"
 		background	"gfx/guis/common/gradient3"
 		matcolor	0,0,0,.5
 		matscalex	-1
+		screenalignx	right
+		screenaligny	top
 	}
 	windowDef t_message
 	{	
 		rect	290,35,336,16
-		visible	1
+		visible	"gui::loading_author_visible"
 		notime	1
 		forecolor	1,1,1,0.52
-		text "gui::loading_message"		
+		text "gui::loading_author"		
 		textscale	0.225
 		font	"fonts/lowpixel"
 		textalign	2
+		screenalignx	right
+		screenaligny	top
 	}
 	windowDef server_name
 	{
@@ -182,6 +262,8 @@ windowDef Desktop
 		textscale	0.25
 		font	"fonts/lowpixel"
 		textalign	2
+		screenalignx	right
+		screenaligny	bottom
 	}
 	windowDef server_ip
 	{
@@ -193,6 +275,8 @@ windowDef Desktop
 		textscale	0.25
 		font	"fonts/lowpixel"
 		textalign	2
+		screenalignx	right
+		screenaligny	bottom
 	}
 	windowDef server_gametype
 	{
@@ -204,6 +288,8 @@ windowDef Desktop
 		textscale	0.25
 		font	"fonts/lowpixel"
 		textalign	2
+		screenalignx	right
+		screenaligny	bottom
 	}
 	windowDef server_limit
 	{
@@ -215,6 +301,8 @@ windowDef Desktop
 		textscale	0.25
 		font	"fonts/lowpixel"
 		textalign	2
+		screenalignx	right
+		screenaligny	bottom
 	}
 	windowDef server_loadinfo
 	{
@@ -226,6 +314,7 @@ windowDef Desktop
 		textscale	0.25
 		font	"fonts/lowpixel"
 		textalign	1
+		screenaligny	bottom
 	}
 	windowDef load_icons
 	{
@@ -237,6 +326,7 @@ windowDef Desktop
 			visible	"gui::load_icon_1"
 			background	"gui::load_icon_img_1"
 			matcolor	1,1,1,1
+			screenaligny	bottom
 		}
 		windowDef load_icon_2
 		{

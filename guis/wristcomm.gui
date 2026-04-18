@@ -12,6 +12,7 @@ windowDef Desktop
 	}
 	
 	onNamedEvent saveMessage {
+		stoptransitions "quicksave_msg" ;
 		set "quicksave_msg::forecolor_w" "1" ;
 		set "quicksave_msg::visible" "1" ;
 		resettime "quicksave_msg" "0" ;
@@ -184,6 +185,7 @@ windowDef Desktop
 	windowDef objectives
 	{
 		rect	0,0,640,480
+		noclip	1
 		visible	1
 		windowDef p_failedobjective
 		{
@@ -215,6 +217,7 @@ windowDef Desktop
 		windowDef p_objectives
 		{
 			rect	0,0,640,480
+			screenalignx	left
 			visible	1
 
 			windowDef d_obj_backbar
@@ -310,6 +313,7 @@ windowDef Desktop
 		windowDef p_compobjectives
 		{
 			rect	0,0,640,480
+			screenalignx	right
 			visible	1
 
 			windowDef d_compobj_backbar
@@ -385,6 +389,7 @@ windowDef Desktop
 	windowDef wristcomm
 	{
 		rect	0,0,640,480
+		screenalignx	left
 		visible	0
 		windowDef p_obj3
 		{

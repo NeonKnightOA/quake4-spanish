@@ -410,9 +410,10 @@ windowDef Desktop
 	{
 		rect	0,0,640,480
 		visible	1
+		noclip	1
 		windowDef fade
 		{
-			rect	0,0,640,480
+			rect	( 0 - "gui::virtual_screen_x_expand" ),( 0 - "gui::virtual_screen_y_expand" ),( 640 + ( "gui::virtual_screen_x_expand" * 2 ) ),( 480 + ( "gui::virtual_screen_y_expand" * 2 ) )
 			visible	1
 			backcolor	0,0,0,0
 		}
@@ -437,6 +438,13 @@ windowDef Desktop
 			background	"gfx/guis/mainmenu/bg_darkgrad2"
 			matcolor	0,0,0,0
 		}
+		windowDef grid0
+		{
+			rect	-480,0,480,480
+			visible	1
+			background	"gfx/guis/mainmenu/bg_grid"
+			matcolor	1,1,1,0
+		}
 		windowDef grid1
 		{
 			rect	0,0,480,480
@@ -455,15 +463,53 @@ windowDef Desktop
 		{
 			rect	-247,-129,1045,129
 			visible	1
+			noclip	1
 			background	"gfx/guis/mainmenu/topbar"
 			matcolor	1,1,1,0.4
+			windowDef topbar_tile_left
+			{
+				rect	-4096,0,4097,129
+				visible	1
+				background	"gfx/guis/mainmenu/topbar_tile_left"
+				matscalex	128
+				matcolor	1,1,1,0.4
+				noevents	1
+			}
+			windowDef topbar_tile_right
+			{
+				rect	1044,0,4097,129
+				visible	1
+				background	"gfx/guis/mainmenu/topbar_tile_right"
+				matscalex	128
+				matcolor	1,1,1,0.4
+				noevents	1
+			}
 		}
 		windowDef btmbar
 		{
 			rect	-198,481,1045,129
 			visible	1
+			noclip	1
 			background	"gfx/guis/mainmenu/btmbar"
 			matcolor	1,1,1,0.4
+			windowDef btmbar_tile_left
+			{
+				rect	-4096,0,4097,129
+				visible	1
+				background	"gfx/guis/mainmenu/btmbar_tile_left"
+				matscalex	128
+				matcolor	1,1,1,0.4
+				noevents	1
+			}
+			windowDef btmbar_tile_right
+			{
+				rect	1044,0,4097,129
+				visible	1
+				background	"gfx/guis/mainmenu/btmbar_tile_right"
+				matscalex	128
+				matcolor	1,1,1,0.4
+				noevents	1
+			}
 		}
 		windowDef d_topbar
 		{
@@ -2210,13 +2256,6 @@ windowDef Desktop
 				background	"gfx/guis/mainmenu/b3_light"
 				matcolor	0.545,0.588,0.294,0.4
 			}
-			windowDef set_b6
-			{
-				rect	174,203,362,26
-				visible	1
-				background	"gfx/guis/mainmenu/b3_light"
-				matcolor	0.545,0.588,0.294,0.4
-			}
 			editDef set_name_val
 			{
 				rect	334,62,135,18
@@ -2240,7 +2279,7 @@ windowDef Desktop
 			{
 				visible	1
 				forecolor	1,0.745,0.137,0.8
-				cvar	ui_clan
+				cvar	gui_ui_clan
 				maxchars	12
 				textscale	0.24
 				font	"fonts/lowpixel"
@@ -2342,26 +2381,9 @@ windowDef Desktop
 				}
 
 			}
-			choiceDef set_datarate_val
-			{
-				rect	334,158,135,18
-				visible	1
-				forecolor	1,0.745,0.137,0.8
-				textscale	0.24
-				font	"fonts/lowpixel"
-				values	"16000;25600;10000"
-				cvar	"net_clientMaxRate"
-				choices	"#str_200077"
-				choiceType	1
-
-				onAction {
-					set "cmd" "play main_menu_selection" ;
-				}
-
-			}
 			editDef set_handicap_val
 			{
-				rect	334,206,135,18
+				rect	334,158,135,18
 				visible	1
 				forecolor	1,0.745,0.137,0.8
 				textscale	0.24
@@ -2412,18 +2434,9 @@ windowDef Desktop
 				textscale	0.24
 				font	"fonts/lowpixel"
 			}
-			windowDef set_datarate
-			{
-				rect	205,158,128,18
-				visible	1
-				forecolor	1,1,1,0.8
-				text	"#str_200222"
-				textscale	0.24
-				font	"fonts/lowpixel"
-			}
 			windowDef set_handicap
 			{
-				rect	205,206,128,18
+				rect	205,158,128,18
 				visible	1
 				forecolor	1,1,1,0.8
 				text	"#str_223001"
@@ -3731,9 +3744,10 @@ windowDef Desktop
 	{
 		rect	0,0,640,480
 		visible	0
+		noclip	1
 		windowDef pop_banlist_black
 		{
-			rect	0,0,640,480
+			rect	( 0 - "gui::virtual_screen_x_expand" ),( 0 - "gui::virtual_screen_y_expand" ),( 640 + ( "gui::virtual_screen_x_expand" * 2 ) ),( 480 + ( "gui::virtual_screen_y_expand" * 2 ) )
 			visible	1
 			backcolor	0,0,0,0
 		}
@@ -3769,6 +3783,7 @@ windowDef Desktop
 		{
 			rect	0,0,640,480
 			visible	0
+			noclip	1
 			windowDef pop_banlist_title
 			{
 				rect	155,126,243,17
@@ -4370,6 +4385,7 @@ windowDef Desktop
 			set "grad::matcolor_w" "0" ;
 			set "screen::matcolor" "0,0,0,0" ;
 			set "grad2::matcolor_w" "0" ;
+			set "grid0::matcolor_w" "0" ;
 			set "grid1::matcolor_w" "0" ;
 			set "grid2::matcolor_w" "0"  ;
 			
@@ -4571,6 +4587,7 @@ windowDef Desktop
 				transition "grad::matcolor_w" "0" "1" "200" ;
 				transition "screen::matcolor" "0,0,0,0" "0.7,0.7,0.7,1" "150" ;
 				transition "grad2::matcolor_w" "0" "0.8" "150" ;
+				transition "grid0::matcolor_w" "0" "0.04" "150" ;
 				transition "grid1::matcolor_w" "0" "0.04" "150" ;
 				transition "grid2::matcolor_w" "0" "0.04" "150" ;
 				
@@ -4677,6 +4694,7 @@ windowDef Desktop
 				transition "grad::matcolor_w" "1" "0" "150" ;
 				transition "screen::matcolor" "0.7,0.7,0.7,1" "0,0,0,0" "150" ;
 				transition "grad2::matcolor_w" "0.8" "0" "150" ;
+				transition "grid0::matcolor_w" "0.04" "0" "150" ;
 				transition "grid1::matcolor_w" "0.04" "0" "150" ;
 				transition "grid2::matcolor_w" "0.04" "0" "150" ;
 				
@@ -5191,6 +5209,7 @@ windowDef Desktop
 				transition "grad::matcolor_w" "1" "0" "150" ;
 				transition "screen::matcolor" "0.7,0.7,0.7,1" "0,0,0,0" "150" ;
 				transition "grad2::matcolor_w" "0.8" "0" "150" ;
+				transition "grid0::matcolor_w" "0.04" "0" "150" ;
 				transition "grid1::matcolor_w" "0.04" "0" "150" ;
 				transition "grid2::matcolor_w" "0.04" "0" "150" ;
 				
@@ -5258,7 +5277,7 @@ windowDef Desktop
 				set "p_main::visible" "0" ;
 				
 				if ( "desktop::dest" == 8) {
-					set "cmd" "mainmenu test" ;
+					set "cmd" "mainmenu" ;
 				} else if ( "desktop::dest" == 9) {
 					set "cmd" "mainmenu fromMp_toControls" ;
 				} else if ( "desktop::dest" == 10) {
@@ -5695,7 +5714,6 @@ windowDef Desktop
 			set "set_b_3::visible" "1" ;
 			//set "set_b_4::visible" "1" ;
 			set "set_b_5::visible" "1" ;
-			set "set_b_6::visible" "1" ;
 			set "set_b_voicechat::visible" "1" ;
 			set "set_b_controls::visible" "1" ;
 			set "set_b_gameopts::visible" "1" ;
@@ -5714,9 +5732,7 @@ windowDef Desktop
 			set "set_model_dm_list::noevents" "0" ;
 			set "set_model_strogg_list::noevents" "0" ;
 			set "set_model_marine_list::noevents" "0" ;
-			set "set_datarate_val::noevents" "0" ;
 			set "set_handicap_val::noevents" "0" ;
-			set "set_punkbuster_val::noevents" "0" ;
 		}
 
 		onNamedEvent hideSet {
@@ -5725,7 +5741,6 @@ windowDef Desktop
 			set "set_b_3::visible" "0" ;
 			//set "set_b_4::visible" "0" ;
 			set "set_b_5::visible" "0" ;
-			set "set_b_6::visible" "0" ;
 			set "set_b_voicechat::visible" "0" ;
 			set "set_b_controls::visible" "0" ;
 			set "set_b_gameopts::visible" "0" ;
@@ -5744,9 +5759,7 @@ windowDef Desktop
 			set "set_model_dm_list::noevents" "1" ;
 			set "set_model_strogg_list::noevents" "1" ;
 			set "set_model_marine_list::noevents" "1" ;
-			set "set_datarate_val::noevents" "1" ;
 			set "set_handicap_val::noevents" "1" ;
-			set "set_punkbuster_val::noevents" "1" ;
 		}
 
 		onNamedEvent showVote {
@@ -6812,28 +6825,6 @@ windowDef Desktop
 			onMouseExit {
 				if ("desktop::active" == 0) {
 					transition "set_b5::matcolor_w" "1" "0.4" "300" ;
-				}
-			}
-
-		}
-		windowDef set_b_6
-		{
-			rect	190,205,280,21
-			visible	0
-
-			onMouseEnter {
-				if ("desktop::active" == 0) {
-					stoptransitions "set_b_6" ;
-					
-					set "set_b6::matcolor_w" "1" ;
-					
-					set "cmd" "play main_menu_mouseover" ;	
-				}
-			}
-
-			onMouseExit {
-				if ("desktop::active" == 0) {
-					transition "set_b6::matcolor_w" "1" "0.4" "300" ;
 				}
 			}
 

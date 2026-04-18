@@ -2,6 +2,7 @@ windowDef Desktop
 {
 	rect	0,0,640,480
 	visible	1
+	noclip	1
 	nocursor	1
 	menugui	1
 	float	"chatCount"	0
@@ -1425,6 +1426,8 @@ windowDef Desktop
 	windowDef p_tourntop
 	{
 		rect	0,0,640,480
+		screenalignx	left
+		screenaligny	top
 		visible	1
 		windowDef tourn_topbar
 		{
@@ -2891,6 +2894,8 @@ windowDef Desktop
 	windowDef aimText
 	{
 		rect	207,260,215,38
+		screenalignx	middle
+		screenaligny	bottom
 		visible	1
 		text	"gui::aim_text"
 		textscale	0.22
@@ -2912,6 +2917,8 @@ windowDef Desktop
 	windowDef aimTextHealth
 	{
 		rect	207,298,215,38
+		screenalignx	middle
+		screenaligny	bottom
 		visible	1
 		text	"gui::aim_teammate_health"
 		textscale	0.22
@@ -2933,6 +2940,8 @@ windowDef Desktop
 	windowDef mainNotice
 	{
 		rect	120,102,400,30
+		screenalignx	middle
+		screenaligny	top
 		visible	1
 		text	"gui::main_notice_text"
 		font	"fonts/lowpixel"
@@ -2960,6 +2969,8 @@ windowDef Desktop
 	windowDef fragNotice
 	{
 		rect	100,81,440,30
+		screenalignx	middle
+		screenaligny	top
 		visible	0
 		text	"gui::frag_notice_text"
 		font	"fonts/lowpixel"
@@ -2987,6 +2998,8 @@ windowDef Desktop
 	windowDef p_ctf
 	{
 		rect	0,0,640,480
+		screenalignx	left
+		screenaligny	top
 		backcolor 0,0,0,0
 		visible	0
 		windowDef ctf_clan1_bg
@@ -3070,6 +3083,8 @@ windowDef Desktop
 		windowDef p_ctf_2
 		{
 			rect	0,0,640,480
+			screenalignx	left
+			screenaligny	top
 			visible	0
 			backcolor 0,0,0,0
 			windowDef ctf_clan1_flag
@@ -3156,6 +3171,8 @@ windowDef Desktop
 		windowDef p_onectf
 		{
 			rect	0,0,640,480
+			screenalignx	left
+			screenaligny	top
 			visible	0
 			windowDef ctfone_arc
 			{
@@ -3236,10 +3253,14 @@ windowDef Desktop
 	windowDef p_ffa
 	{
 		rect	0,0,640,480
+		screenalignx	left
+		screenaligny	top
 		visible	0
 		windowDef p_tourney
 		{
 			rect	0,0,640,480
+			screenalignx	left
+			screenaligny	top
 			visible	1
 			windowDef tourn_roundarr1
 			{
@@ -3420,12 +3441,16 @@ windowDef Desktop
 	windowDef p_mframes
 	{
 		rect	576, 0, 64, 64
+		screenalignx	right
+		screenaligny	top
 		background	"gfx/mp/frowny"
 		visible	"gui::mult_frames"
 	}
 	windowDef p_mframesn
 	{
 		rect	576, 64, 64, 32
+		screenalignx	right
+		screenaligny	top
 		visible	"gui::mult_frames"
 		text	"gui::num_frames"
 		textalign	1
@@ -3433,6 +3458,8 @@ windowDef Desktop
 	windowDef p_stats
 	{
 		rect	474,0,166,480
+		screenalignx	right
+		screenaligny	top
 		visible	"gui::stat_visible"
 		windowDef statgrad
 		{
@@ -3843,6 +3870,8 @@ windowDef Desktop
 	windowDef p_history
 	{
 		rect	8,302,549,65
+		screenalignx	left
+		screenaligny	bottom
 		visible	1
 		nocursor	1
 		windowDef history1
@@ -3850,6 +3879,7 @@ windowDef Desktop
 			rect	0,0,549,18
 			forecolor	1,1,.552,1
 			textscale	0.25
+			textalign	0
 			font	"fonts/lowpixel"
 			visible	0
 			textstyle	1
@@ -3859,6 +3889,7 @@ windowDef Desktop
 			rect	0,0,549,18
 			forecolor	1,1,.552,1
 			textscale	0.25
+			textalign	0
 			font	"fonts/lowpixel"
 			visible	0
 			textstyle	1
@@ -3868,6 +3899,7 @@ windowDef Desktop
 			rect	0,15,549,18
 			forecolor	1,1,.552,1
 			textscale	0.25
+			textalign	0
 			font	"fonts/lowpixel"
 			visible	0
 			textstyle	1
@@ -3877,6 +3909,7 @@ windowDef Desktop
 			rect	0,30,549,18
 			forecolor	1,1,.552,1
 			textscale	0.25
+			textalign	0
 			font	"fonts/lowpixel"
 			visible	0
 			textstyle	1
@@ -3886,6 +3919,7 @@ windowDef Desktop
 			rect	0,45,549,18
 			forecolor	1,1,.552,1
 			textscale	0.25
+			textalign	0
 			font	"fonts/lowpixel"
 			visible	0
 			textstyle	1
@@ -3918,6 +3952,8 @@ windowDef Desktop
 	windowDef ig_awards
 	{
 		rect	38,132,561,74
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::ig_awards"
 		notime	1
 
@@ -4024,6 +4060,8 @@ windowDef Desktop
 	windowDef p_aud1
 	{
 		rect	4,263,158,16
+		screenalignx	left
+		screenaligny	bottom
 		visible	0
 		windowDef aud1_backbar
 		{
@@ -4054,6 +4092,8 @@ windowDef Desktop
 	windowDef p_aud2
 	{
 		rect	4,286,158,16
+		screenalignx	left
+		screenaligny	bottom
 		visible	0
 		windowDef aud2_backbar
 		{
@@ -4086,6 +4126,8 @@ windowDef Desktop
 		text	"gui::spectatetext0"
 		font	"fonts/lowpixel"
 		rect	0,123,640,40
+		screenalignx	middle
+		screenaligny	top
 		forecolor	1,1,0.549,1
 		textscale	0.38
 		visible	("gui::gametype" != 2)
@@ -4111,6 +4153,8 @@ windowDef Desktop
 		text	"gui::spectatetext1"
 		font	"fonts/lowpixel"
 		rect	0,141,640,40
+		screenalignx	middle
+		screenaligny	top
 		forecolor	1,1,0.549,1
 		textscale	0.31
 		visible	("gui::gametype" != 2)
@@ -4134,6 +4178,8 @@ windowDef Desktop
 	windowDef voteNotice
 	{
 		rect	4,145,632,31
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::voteNotice"
 		forecolor	1,1,.552,1
 		text	"gui::voteNoticeText"
@@ -4144,6 +4190,8 @@ windowDef Desktop
 	windowDef voteInfo_1
 	{
 		rect	4,173,632,16
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::voteNotice"
 		forecolor	1,1,1,1
 		text	"gui::voteInfo_1"
@@ -4154,6 +4202,8 @@ windowDef Desktop
 	windowDef voteInfo_2
 	{
 		rect	4,187,632,16
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::voteNotice"
 		forecolor	1,1,1,1
 		text	"gui::voteInfo_2"
@@ -4164,6 +4214,8 @@ windowDef Desktop
 	windowDef voteInfo_3
 	{
 		rect	4,201,632,16
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::voteNotice"
 		forecolor	1,1,1,1
 		text	"gui::voteInfo_3"
@@ -4174,6 +4226,8 @@ windowDef Desktop
 	windowDef voteInfo_4
 	{
 		rect	4,215,632,16
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::voteNotice"
 		forecolor	1,1,1,1
 		text	"gui::voteInfo_4"
@@ -4184,6 +4238,8 @@ windowDef Desktop
 	windowDef voteInfo_5
 	{
 		rect	4,229,632,16
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::voteNotice"
 		forecolor	1,1,1,1
 		text	"gui::voteInfo_5"
@@ -4194,6 +4250,8 @@ windowDef Desktop
 	windowDef voteInfo_6
 	{
 		rect	4,243,632,16
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::voteNotice"
 		forecolor	1,1,1,1
 		text	"gui::voteInfo_6"
@@ -4204,6 +4262,8 @@ windowDef Desktop
 	windowDef voteInfo_7
 	{
 		rect	4,257,632,16
+		screenalignx	middle
+		screenaligny	top
 		visible	"gui::voteNotice"
 		forecolor	1,1,1,1
 		text	"gui::voteInfo_7"
@@ -4215,6 +4275,8 @@ windowDef Desktop
 	windowDef sq_credits
    	{
   		rect	3,110,167,17
+ 		screenalignx	left
+ 		screenaligny	top
   		visible	1
    		forecolor	1,1,1,1
   		text	"gui::credits"
@@ -4225,6 +4287,8 @@ windowDef Desktop
 	windowDef sq_gameStatus
    	{
   		rect	3,127,167,17
+ 		screenalignx	left
+ 		screenaligny	top
   		visible	1
    		forecolor	1,1,1,1
   		text	"gui::gameStatus"

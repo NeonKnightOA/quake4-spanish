@@ -6,6 +6,15 @@
 			{
 				rect	0,0,640,480
 				visible	0
+				windowDef set_game_canvas
+				{
+					rect	0,104,640,280
+					visible	1
+					noclip	0
+					windowDef set_game_content
+					{
+						rect	-24,-47,640,608
+						visible	1
 
 	//--------------------------------------------------------------//
 	// Settings->Game Options->Free Look
@@ -138,6 +147,50 @@
 					}					
 				}
 	//==============================================================//
+
+	//==============================================================//
+	// Settings->Game Options->Toggle Zoom
+	//--------------------------------------------------------------//
+
+				windowDef set_game_togglezoom
+				{
+					rect  228,119,403,25
+					visible 1
+
+					windowDef set_game_togglezoom_background
+					{
+						rect	0,0,377,25
+						visible	1
+						background	"gfx/guis/mainmenu/b3_light"
+						matcolor	0.545,0.588,0.294,0.4
+					}
+
+					windowDef set_game_togglezoom_description
+					{
+						rect	31,3,210,18
+						visible	1
+						forecolor	1,1,1,0.8
+						text	"#str_41108"
+						textscale	0.24
+						font	"fonts/lowpixel"
+					}
+					choiceDef set_game_togglezoom_value
+					{
+						rect	240,3,162,18
+						visible	1
+						forecolor	1,0.745,0.137,0.8
+						cvar	in_toggleZoom
+						textscale	0.24
+						font	"fonts/lowpixel"
+						choices	"#str_200059"
+						choiceType	0
+
+						onAction {
+							set "cmd" "play main_menu_selection" ;
+						}
+					}
+				}
+	//==============================================================//
 				
 	//==============================================================//
 	// Settings->Game Options->Show Decals
@@ -145,7 +198,7 @@
 				
 				windowDef set_game_showdecals
 				{
-					rect  228,119,403,25
+					rect  228,143,403,25
 					visible 1
 											
 					windowDef set_game_showdecals_background
@@ -189,7 +242,7 @@
 				
 				windowDef set_game_showgun
 				{
-					rect  228,143,403,25
+					rect  228,167,403,25
 					visible 1
 											
 					windowDef set_game_showgun_background
@@ -233,7 +286,7 @@
 				
 				windowDef set_game_gunXYZ
 				{
-					rect  228,167,403,25
+					rect  228,191,403,25
 					visible 1
 											
 					windowDef set_game_gunXYZ_background
@@ -266,19 +319,19 @@
 							
 							onAction {
 								if ("gui::g_gunXYZ" == 0) {
-								   consoleCMD "g_gunX 2";
+								   consoleCMD "g_gunX 1";
 								   consoleCMD "g_gunY 2";
-								   consoleCMD "g_gunZ -2";
+								   consoleCMD "g_gunZ -1";
 								   consoleCMD "g_weaponFovEffect 1";
 								} else if ("gui::g_gunXYZ" == 1) {
-								   consoleCMD "g_gunX 2";
+								   consoleCMD "g_gunX 1";
 								   consoleCMD "g_gunY -5";
-								   consoleCMD "g_gunZ -2";
+								   consoleCMD "g_gunZ -1";
 								   consoleCMD "g_weaponFovEffect 1";
 								} else {
-								   consoleCMD "g_gunX 0";
+								   consoleCMD "g_gunX 1";
 								   consoleCMD "g_gunY 0";
-								   consoleCMD "g_gunZ 0";
+								   consoleCMD "g_gunZ -1";
 								   consoleCMD "g_weaponFovEffect 1";
 								}
 								set "cmd" "play main_menu_selection" ; 
@@ -293,7 +346,7 @@
 				
 				windowDef set_game_simpleitems
 				{
-					rect  228,191,403,25
+					rect  228,215,403,25
 					visible 1
 											
 					windowDef set_game_simpleitems_background
@@ -336,7 +389,7 @@
 				
 				windowDef set_game_forcemodel
 				{
-					rect  228,215,403,25
+					rect  228,239,403,25
 					visible 1
 					
 					
@@ -391,7 +444,7 @@
 				
 				windowDef set_game_mpitch
 				{
-					rect  228,239,403,25
+					rect  228,263,403,25
 					visible 1
 											
 					windowDef set_game_mpitch_background
@@ -436,7 +489,7 @@
 
 				windowDef set_game_msmooth
 				{
-					rect	228,263,377,25
+					rect	228,287,377,25
 					visible	1
 				
 					windowDef set_game_msmooth_background
@@ -502,7 +555,7 @@
 
 				windowDef set_game_msensitivity
 				{
-					rect	228,287,377,25
+					rect	228,311,377,25
 					visible	1
 				
 					windowDef set_game_msensitivity_background
@@ -568,7 +621,7 @@
 				
 				windowDef set_game_customxhair
 				{
-					rect  228,311,403,25
+					rect  228,335,403,25
 					visible 1
 											
 					windowDef set_game_customxhair_background
@@ -629,7 +682,7 @@
 			
 				windowDef set_game_previewxhair
 				{
-					rect	228,335,377,48
+					rect	228,359,377,48
 					visible	1
 				
 					windowDef set_game_previewxhair_background
@@ -692,7 +745,7 @@
 
 				windowDef set_game_xhairsize
 				{
-					rect  228,383,377,25
+					rect  228,407,377,25
 					visible 1
 											
 					windowDef set_game_xhairsize_background
@@ -750,7 +803,7 @@
 
 				windowDef set_game_xhaircolor
 				{
-					rect  228,408,377,25
+					rect  228,432,377,25
 					visible 1
 											
 					windowDef set_game_xhaircolor_background
@@ -827,7 +880,246 @@
 					}
 				}
 	//==============================================================//
+				
+	//==============================================================//
+	// Settings->Game Options->Corpse Sink
+	//==============================================================//
 
+				windowDef set_game_corpsesink
+				{
+					rect  228,457,377,25
+					visible 1
+
+					windowDef set_game_corpsesink_background
+					{
+						rect	0,0,377,25
+						visible	1
+						background	"gfx/guis/mainmenu/b3_light"
+						matcolor	0.545,0.588,0.294,0.4
+					}
+					windowDef set_game_corpsesink_description
+					{
+						rect	31,3,210,18
+						visible	1
+						forecolor	1,1,1,0.8
+						text	"#str_229917"
+						textscale	0.24
+						font	"fonts/lowpixel"
+					}
+					choiceDef set_game_corpsesink_value
+					{
+						rect	240,3,162,18
+						visible	1
+						forecolor	1,0.745,0.137,0.8
+						cvar	g_corpseSink
+						textscale	0.24
+						font	"fonts/lowpixel"
+						choices	"#str_229921"
+						values	"0;1;2"
+						choiceType	0
+
+						onAction {
+							set "cmd" "play main_menu_selection" ;
+						}
+					}
+				}
+	//==============================================================//
+
+	//==============================================================//
+	// Settings->Game Options->Corpse Time
+	//==============================================================//
+
+				windowDef set_game_corpsetime
+				{
+					rect  228,481,377,25
+					visible 1
+
+					windowDef set_game_corpsetime_background
+					{
+						rect	0,0,377,25
+						visible	1
+						background	"gfx/guis/mainmenu/b3_light"
+						matcolor	0.545,0.588,0.294,0.4
+					}
+					windowDef set_game_corpsetime_description
+					{
+						rect	31,3,210,18
+						visible	1
+						forecolor	1,1,1,0.8
+						text	"#str_229918"
+						textscale	0.24
+						font	"fonts/lowpixel"
+					}
+					choiceDef set_game_corpsetime_value
+					{
+						rect	240,3,162,18
+						visible	1
+						forecolor	1,0.745,0.137,0.8
+						gui	corpse_time_choice
+						textscale	0.24
+						font	"fonts/lowpixel"
+						choices	"#str_229919"
+						choiceType	0
+
+						onAction {
+							set "cmd" "play main_menu_selection" ;
+						}
+
+						onActionRelease {
+							if ( "gui::ingame" == 2 ) {
+								if ( "gui::corpse_time_choice" == 0 ) {
+									consoleCMD "seta g_corpseRemoveDelayMP 0" ;
+								} else if ( "gui::corpse_time_choice" == 1 ) {
+									consoleCMD "seta g_corpseRemoveDelayMP -1" ;
+								} else if ( "gui::corpse_time_choice" == 2 ) {
+									consoleCMD "seta g_corpseRemoveDelayMP 5" ;
+								} else if ( "gui::corpse_time_choice" == 3 ) {
+									consoleCMD "seta g_corpseRemoveDelayMP 10" ;
+								} else if ( "gui::corpse_time_choice" == 4 ) {
+									consoleCMD "seta g_corpseRemoveDelayMP 15" ;
+								} else if ( "gui::corpse_time_choice" == 5 ) {
+									consoleCMD "seta g_corpseRemoveDelayMP 30" ;
+								} else if ( "gui::corpse_time_choice" == 6 ) {
+									consoleCMD "seta g_corpseRemoveDelayMP 60" ;
+								}
+							} else {
+								if ( "gui::corpse_time_choice" == 0 ) {
+									consoleCMD "seta g_corpseRemoveDelaySP 0" ;
+								} else if ( "gui::corpse_time_choice" == 1 ) {
+									consoleCMD "seta g_corpseRemoveDelaySP -1" ;
+								} else if ( "gui::corpse_time_choice" == 2 ) {
+									consoleCMD "seta g_corpseRemoveDelaySP 5" ;
+								} else if ( "gui::corpse_time_choice" == 3 ) {
+									consoleCMD "seta g_corpseRemoveDelaySP 10" ;
+								} else if ( "gui::corpse_time_choice" == 4 ) {
+									consoleCMD "seta g_corpseRemoveDelaySP 15" ;
+								} else if ( "gui::corpse_time_choice" == 5 ) {
+									consoleCMD "seta g_corpseRemoveDelaySP 30" ;
+								} else if ( "gui::corpse_time_choice" == 6 ) {
+									consoleCMD "seta g_corpseRemoveDelaySP 60" ;
+								}
+							}
+						}
+					}
+				}
+	//==============================================================//
+
+	//==============================================================//
+	// Settings->Game Options->Language
+	//==============================================================//
+
+				windowDef set_game_language
+				{
+					rect  228,505,377,25
+					visible 1
+											
+					windowDef set_game_language_background
+					{
+						rect	0,0,377,25
+						visible	1
+						background	"gfx/guis/mainmenu/b3_light"
+						matcolor	0.545,0.588,0.294,0.4
+					}
+					windowDef set_game_language_description
+					{
+						rect	31,3,210,18
+						visible	1
+						forecolor	1,1,1,0.8
+						text	"#str_229907"
+						textscale	0.24
+						font	"fonts/lowpixel"
+					}
+					choiceDef set_game_language_value
+					{
+						rect	240,3,162,18
+						visible	1
+						forecolor	1,0.745,0.137,0.8
+						textscale	0.24
+						font	"fonts/lowpixel"
+						cvar	sys_lang
+						choices	"#str_229908"
+						choiceType	1
+						values	"english;spanish;french;italian"
+
+						onAction {
+							set "cmd" "play main_menu_selection" ;
+						}
+
+						onActionRelease {
+							set "cmd" "reloadLanguage ; reloadGuis ; CVarStrcmp sys_lang curr_lang English Spanish French Italian" ;
+						}
+					}
+				}
+	//==============================================================//
+
+	//==============================================================//
+	// Settings->Game Options->Console Access
+	//==============================================================//
+
+				windowDef set_game_consoleaccess
+				{
+					rect  228,529,377,25
+					visible 1
+
+					windowDef set_game_consoleaccess_background
+					{
+						rect	0,0,377,25
+						visible	1
+						background	"gfx/guis/mainmenu/b3_light"
+						matcolor	0.545,0.588,0.294,0.4
+					}
+					windowDef set_game_consoleaccess_description
+					{
+						rect	31,3,210,18
+						visible	1
+						forecolor	1,1,1,0.8
+						text	"#str_229922"
+						textscale	0.24
+						font	"fonts/lowpixel"
+					}
+					choiceDef set_game_consoleaccess_value
+					{
+						rect	240,3,162,18
+						visible	1
+						forecolor	1,0.745,0.137,0.8
+						cvar	con_allowConsole
+						textscale	0.24
+						font	"fonts/lowpixel"
+						choices	"#str_229923"
+						values	"0;1"
+						choiceType	1
+
+						onAction {
+							set "cmd" "play main_menu_selection" ;
+						}
+					}
+				}
+	//==============================================================//
+				#include "guis/menu/settings/game_hovers.gui"
+					}
+				}
+				sliderDef set_game_scroll_thumb
+				{
+					rect	613,104,16,280
+					visible	0
+					background	"gfx/guis/scrollbarv"
+					forecolor	1,1,1,0.8
+					matcolor	1,1,1,0.4
+					low	0
+					high	10
+					step	1
+					vertical	1
+					scrollbar	1
+					thumbShader	"gfx/guis/scrollbar_thumb"
+					cvar	gui_set_game_scroll
+
+					onAction {
+						namedevent "applySetGameScroll" ;
+					}
+					onActionRelease {
+						namedevent "applySetGameScroll" ;
+					}
+				}
 			}
 
 //**************************************************************//
